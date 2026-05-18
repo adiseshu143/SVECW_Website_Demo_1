@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-forest-900: #10281f;
+  --color-forest-800: #163829;
+  --color-forest-700: #1f4d3a;
+  --color-forest-600: #2d6a4f;
+  --color-gold-500: #ff7b00;
+  --color-gold-400: #ff8f24;
+  --color-gold-300: #ffad52;
+
+  --color-pastel-purple-50: #f7f2fb;
+  --color-pastel-purple-100: #ede2f7;
+  --color-pastel-purple-200: #dac8ed;
+  --color-pastel-purple-500: #7e4ca8;
+  --color-pastel-purple-700: #5b1e8c;
+  --color-pastel-purple-800: #4b1875;
+  --color-pastel-purple-900: #37125a;
+
+  --color-pastel-peach-50: #fff5eb;
+  --color-pastel-peach-100: #ffe6d1;
+  --color-pastel-peach-200: #ffd2ad;
+  --color-pastel-peach-400: #ff9b38;
+  --color-pastel-peach-500: #ff7b00;
+
+  --color-pastel-mint-50: #eef5f1;
+  --color-pastel-mint-100: #ddeae3;
+  --color-pastel-mint-200: #c5d8cf;
+  --color-pastel-mint-600: #2d6a4f;
+  --color-pastel-mint-700: #1f4d3a;
+  --color-pastel-mint-800: #163829;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-pastel-mint-50 text-forest-800 antialiased selection:bg-pastel-peach-200 selection:text-forest-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-pastel-purple-900 font-bold;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/65 backdrop-blur-md border border-white/50;
+  }
+  .glass-dark {
+    @apply bg-forest-900/85 backdrop-blur-md border border-white/10;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1F4D3A] via-[#5B1E8C] to-[#FF7B00] bg-[length:200%_200%];
+    animation: gradient 8s ease-in-out infinite;
+  }
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pastel-purple-700 to-pastel-purple-500;
+  }
+  .bg-gradient-forest {
+    @apply bg-gradient-to-br from-[#163829] via-[#1F4D3A] to-[#2d6a4f];
+  }
+  .bg-gradient-logo {
+    @apply bg-gradient-to-br from-pastel-mint-100 via-pastel-purple-50 to-pastel-peach-50;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
